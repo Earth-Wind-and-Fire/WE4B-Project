@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:Earth-Wind-and-Fire/WE4B-Project-Backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:Earth-Wind-and-Fire/WE4B-Project-Frontend.git
