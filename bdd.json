@@ -1,0 +1,110 @@
+"user": {
+  "INE" (required, unique),
+  "email" (required, unique),
+  "name" (required),
+  "firstname" (required),
+  "role" (required, enum: ["student", "teacher", "admin"]),
+  "imgb64",
+  "password" (required),
+  "department",
+  "promo",
+  "biography",
+  "courses":
+  [
+    {
+      "courseID" (required, unique),
+      "lastAccess" (required, date),
+      "assignment":
+      [
+        "assignment_user"
+      ]
+    }
+  ]
+},
+
+"courses"{
+  "code" (required, unique),
+  "nom" (required),
+  "date" (required, date),
+  "img",
+  "description",
+  "competences":[
+    {"title" (require),
+      "subtitle"}
+  ],
+  "content":[
+    {"category_id" (require),
+      "index" (require, unique)}
+  ]
+},
+
+
+"post" {
+  "title" (required),
+  "subtitle",
+  content (file or text),
+},
+
+"assignment" {
+  "title" (required),
+  "subtitle",
+  "content": (text),
+  "date_opened" (required),
+  "date_due" (required),
+  "grade",
+  "coefficient"
+  }
+},
+
+"assignment_user"{
+    "user_id" (required),
+    "assignment_id" (required),
+    "nbr_tentatives",
+    "evaluation",
+    "attachments":[] (gridfs)
+        "comment":[
+            {
+                "user_id" (required),
+                "content" (required),
+                "date" (required)
+            }
+        ]
+
+]
+},
+
+"category" {
+  "title" (required),
+  "subtitle",
+  "content" : [
+    "type",  // enum: ["post", "assignment"] (required)
+    "post_id" | "assignment_id" (required)
+  ]
+}
+
+"forum"
+{
+  "liste": [
+    "forum_thread"
+  ],
+}
+
+"forum_thread"
+{
+  "ue", // course code or global forum
+  "title" (required),
+  "date_creation" (required),
+  "creator" (required),
+  "message" : [
+    "user_id" (required),
+    "content" (required),
+    "date" (required),
+    "reactions" (required): [
+      {
+        "upvote": ["user_id"],
+        "downvote": ["user_id"]
+      }
+    ]
+
+  ]
+}
