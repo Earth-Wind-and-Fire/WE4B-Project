@@ -9,13 +9,13 @@ fi
 
 # Démarrage du backend (TypeScript)
 cd backend
-$NPM_CMD run start &
+$NPM_CMD run dev &
 BACKEND_PID=$!
 cd ..
 
 # Démarrage du frontend (Angular)
 cd frontend
-$NPM_CMD start &
+$NPM_CMD run start &
 FRONTEND_PID=$!
 cd ..
 
