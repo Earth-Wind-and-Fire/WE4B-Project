@@ -2,7 +2,7 @@
 @startuml
 
 entity user {
-    *INE : varchar <<PK, unique>>
+    *ine : varchar <<PK, unique>>
     *email : varchar <<unique>>
     *name : varchar
     *firstname : varchar

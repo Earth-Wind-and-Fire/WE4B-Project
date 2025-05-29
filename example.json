@@ -1,6 +1,6 @@
 // Exemple pour la collection "user"
 {
-  "INE": "123456789AB",
+  "ine": "123456789AB",
   "email": "etudiant@utbm.fr",
   "name": "Dupont",
   "firstname": "Alice",

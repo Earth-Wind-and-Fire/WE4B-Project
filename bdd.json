@@ -1,5 +1,5 @@
 "user": {
-  "INE" (required, unique),
+  "ine" (required, unique),
   "email" (required, unique),
   "name" (required),
   "firstname" (required),
