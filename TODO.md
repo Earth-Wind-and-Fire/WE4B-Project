@@ -35,7 +35,8 @@
 ## Profil utilisateur
 - [X] Affichage dynamique des informations du profil.
 - [ ] Modification du profil (infos personnelles, photo, etc.).
-- [ ] Affichage des cours inscrits et de l’activité récente.
+- [X] Affichage des cours inscrits
+- [ ] Affichage de l’activité récente.
 - [ ] Affichage des notes (moyenne) sur les cours suivis.
 
 ## Notifications
