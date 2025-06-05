@@ -28,7 +28,7 @@
   "date" (required, date),
   "img",
   "description",
-  "competences":[
+  "skills":[
     {"title" (require),
       "subtitle"}
   ],

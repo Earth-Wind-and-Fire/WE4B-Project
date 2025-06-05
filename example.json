@@ -28,7 +28,7 @@
   "date": "2024-05-01",
   "img": "",
   "description": "Cours sur le développement web avancé.",
-  "competences": [
+  "skills": [
     { "title": "Node.js", "subtitle": "Backend" }
   ],
   "content": [
