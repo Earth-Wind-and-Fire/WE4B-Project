@@ -1,0 +1,5 @@
+slides:
+    separator_vertical: \n\/\/+[V|v][S|s]?
+    separator: \n\/\/+[S|s]
+    theme: white.scss
+
