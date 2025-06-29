@@ -66,9 +66,7 @@ pre, code {
 //S
 
 <h5> Architecture </h5>
-
 //VS
-
 <table>
     <tr>
         <td><h6>Menu</h6><img src="img/slide/front.png" alt="architecture1" style="max-width: 100%;"></td>
