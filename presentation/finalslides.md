@@ -63,26 +63,33 @@ pre, code {
    On peut faire des notes (accessible avec la touche "s")
 </aside>
 
-//S
 
-<h5> Architecture </h5>
-//VS
-<table>
-    <tr>
-        <td><h6>Menu</h6><img src="img/slide/front.png" alt="architecture1" style="max-width: 100%;"></td>
-        <td><h6>AR</h6><img src="img/slide/back.png" alt="architecture2" style="max-width: 100%;"></td>
-    </tr>
-    <tr>
-        <td><h6>BDD</h6><img src="img/slide/uml_bdd.png" alt="architecture4" style="max-width: 100%;"></td>
-    </tr>
-</table>
 
 //S
 
 <h5>Différentes Pages</h5>
 
-
 //VS
+
+<h6>Dashboard</h6>
+    <img src="img/dashboard.png" alt="dashboard" style="max-width: 100%;">
+//VS
+<h6>Courses</h6>
+    <img src="img/courses.png" alt="courses" style="max-width: 100%;">
+//VS
+<h6>Calendrier</h6>
+    <img src="img/calendar.png" alt="calendar" style="max-width: 100%;">
+//VS
+<h6>Profil</h6>
+    <img src="img/profile.png" alt="profile" style="max-width: 100%;">
+//VS
+<h6>Forums</h6>
+    <img src="img/forums.png" alt="forums" style="max-width: 100%;">
+//VS
+<h6>Exemple d'un forum</h6>
+    <img src="img/forum_detail.png" alt="forums" style="max-width: 100%;">
+//VS
+
 
 
 //VS
@@ -161,270 +168,531 @@ WE4B-Project
 
 //VS
 
- <h5> API REST & Base de données </h5> <!-- (Critère : Intégration BDD) -->
-- API RESTful (PHP) pour toutes les interactions client-serveur.
+<h5> API REST & Base de données </h5> <!-- (Critère : Intégration BDD) -->
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Routes</title>
-    <style>
-        .container {
-            display: flex;
-            height: 400px;
-            font-size: 0.3em;
-            gap: 20px;
-        }
-        .api-table {
-            height: 400px;
-            border-collapse: collapse;
-            border: 2px solid rgb(140, 140, 140);
-            letter-spacing: 0.5px;
-            flex: 1;
-        }
-        .api-table thead {
-            background-color: rgb(228, 240, 245);
-        }
-        .api-table th {
-            text-align: center;
-            border: 1px solid black;
-            padding: 8px 10px;
-        }
-        .api-table tbody tr {
-            border: 1px solid rgb(160, 160, 160);
-        }
-        .api-table tbody tr:nth-child(odd) {
-            background-color: rgb(245, 245, 245);
-        }
-        .api-table tbody tr:nth-child(even) {
-            background-color: rgb(228, 240, 245);
-        }
-        .api-table td {
-            border: 1px solid rgb(160, 160, 160);
-            padding: 8px 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <table class="api-table" style="height: 400px;">
+<p style = "color: black; font-size:0.6em">API RESTful (Node.js/Express + TypeScript) pour toutes les interactions client-serveur.</p>
+<p style = "color: black; font-size:0.6em">Base de données MongoDB Atlas avec GridFS pour le stockage de fichiers.</p>
+
+//VS
+
+<h5>Routes API Détaillées</h5>
+
+//VS
+
+<h6>Routes d'Authentification - /api/auth</h6>
+
+<table class="api-table" style="width: 80%; margin: 0 auto; font-size: 0.4em;">
+    <thead>
+        <tr style="background-color: rgb(228, 240, 245);">
+            <th style="border: 1px solid black; padding: 8px;">Endpoint</th>
+            <th style="border: 1px solid black; padding: 8px;">Méthode</th>
+            <th style="border: 1px solid black; padding: 8px;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/login</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Connexion utilisateur avec credentials</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/logout</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Déconnexion utilisateur</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/check</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Vérification du token d'authentification</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/verify-admin</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Vérification des droits administrateur</td>
+        </tr>
+    </tbody>
+</table>
+
+//VS
+
+<h6>Routes Utilisateur - /api/user</h6>
+
+<div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.4em;">GET</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.4em;">
             <thead>
-                <tr>
-                    <th scope="col">Route</th>
-                    <th scope="col">Méthode HTTP</th>
-                    <th scope="col">Description rapide</th>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>add_skin.php</td>
-                    <td>POST</td>
-                    <td>Ajout d'un skin (upload + BDD, protégé par mot de passe)</td>
+                    <td style="border: 1px solid black; padding: 6px;">/me</td>
+                    <td style="border: 1px solid black; padding: 6px;">Profil utilisateur connecté</td>
                 </tr>
                 <tr>
-                    <td>buy_skin.php</td>
-                    <td>GET</td>
-                    <td>Achat d'un skin par un utilisateur</td>
+                    <td style="border: 1px solid black; padding: 6px;">/admin</td>
+                    <td style="border: 1px solid black; padding: 6px;">Liste tous les utilisateurs (admin)</td>
                 </tr>
                 <tr>
-                    <td>check_username.php</td>
-                    <td>GET</td>
-                    <td>Vérifie la disponibilité d'un nom d'utilisateur</td>
+                    <td style="border: 1px solid black; padding: 6px;">/image</td>
+                    <td style="border: 1px solid black; padding: 6px;">Image de profil</td>
                 </tr>
                 <tr>
-                    <td>delete_score.php</td>
-                    <td>GET</td>
-                    <td>Supprime un score pour un utilisateur</td>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications</td>
+                    <td style="border: 1px solid black; padding: 6px;">Notifications utilisateur</td>
                 </tr>
                 <tr>
-                    <td>delete_user.php</td>
-                    <td>POST</td>
-                    <td>Supprime un utilisateur (et ses données)</td>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications/count</td>
+                    <td style="border: 1px solid black; padding: 6px;">Nombre de notifications</td>
                 </tr>
                 <tr>
-                    <td>get_all_skins.php</td>
-                    <td>GET</td>
-                    <td>Récupère la liste de tous les skins</td>
-                </tr>
-                <tr>
-                    <td>get_all_users.php</td>
-                    <td>GET</td>
-                    <td>Récupère la liste de tous les utilisateurs</td>
-                </tr>
-                <tr>
-                    <td>get_global_scores.php</td>
-                    <td>GET</td>
-                    <td>Récupère les scores globaux (classement)</td>
-                </tr>
-                <tr>
-                    <td>get_player_rank.php</td>
-                    <td>GET</td>
-                    <td>Récupère le rang d'un joueur</td>
-                </tr>
-                <tr>
-                    <td>get_total_user_count.php</td>
-                    <td>GET</td>
-                    <td>Nombre total d'utilisateurs</td>
-                </tr>
-                <tr>
-                    <td>get_user_bestscore.php</td>
-                    <td>GET</td>
-                    <td>Meilleur score d'un utilisateur</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="api-table" style="height: 400px;">
-            <thead>
-                <tr>
-                    <th scope="col">Route</th>
-                    <th scope="col">Méthode HTTP</th>
-                    <th scope="col">Description rapide</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>get_user_money.php</td>
-                    <td>GET</td>
-                    <td>Argent d'un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>get_user_role.php</td>
-                    <td>GET</td>
-                    <td>Rôle d'un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>get_user_scores.php</td>
-                    <td>GET</td>
-                    <td>Liste des scores d'un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>get_user_skins.php</td>
-                    <td>GET</td>
-                    <td>Liste des skins d'un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>list_skins.php</td>
-                    <td>GET</td>
-                    <td>Liste détaillée des skins (fonction avancée/admin)</td>
-                </tr>
-                <tr>
-                    <td>login.php</td>
-                    <td>GET</td>
-                    <td>Vérifie l'existence d'un utilisateur (connexion)</td>
-                </tr>
-                <tr>
-                    <td>register.php</td>
-                    <td>GET</td>
-                    <td>Inscription ou mise à jour du nom d'utilisateur</td>
-                </tr>
-                <tr>
-                    <td>send_score.php</td>
-                    <td>GET</td>
-                    <td>Ajoute un score et met à jour l'argent</td>
-                </tr>
-                <tr>
-                    <td>send_user_skin.php</td>
-                    <td>GET</td>
-                    <td>Ajoute un skin à un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>update_money.php</td>
-                    <td>GET</td>
-                    <td>Modifie l'argent d'un utilisateur</td>
-                </tr>
-                <tr>
-                    <td>update_server.php</td>
-                    <td>POST</td>
-                    <td>Met à jour le serveur (protégé par mot de passe)</td>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications/details</td>
+                    <td style="border: 1px solid black; padding: 6px;">Détails des notifications</td>
                 </tr>
             </tbody>
         </table>
     </div>
-</body>
-</html>
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.4em;">POST/PATCH/DELETE</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.4em;">
+            <thead>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Méthode</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/add</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Ajouter utilisateur</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/update</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #fff3cd;">PATCH</td>
+                    <td style="border: 1px solid black; padding: 6px;">Mettre à jour utilisateur</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/delete</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #f8d7da;">DELETE</td>
+                    <td style="border: 1px solid black; padding: 6px;">Supprimer utilisateur</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Ajouter notification</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #f8d7da;">DELETE</td>
+                    <td style="border: 1px solid black; padding: 6px;">Supprimer toutes notifications</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/notifications/:hash</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #f8d7da;">DELETE</td>
+                    <td style="border: 1px solid black; padding: 6px;">Supprimer notification</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+//VS
+
+<h6>Routes Cours - /api/courses</h6>
+
+<div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.4em;">GET</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.4em;">
+            <thead>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/</td>
+                    <td style="border: 1px solid black; padding: 6px;">Page d'accueil (HelloWorld)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/all</td>
+                    <td style="border: 1px solid black; padding: 6px;">Tous les cours (admin)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/user</td>
+                    <td style="border: 1px solid black; padding: 6px;">Cours de l'utilisateur connecté</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/codes</td>
+                    <td style="border: 1px solid black; padding: 6px;">Codes des cours accessibles</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/code/:code</td>
+                    <td style="border: 1px solid black; padding: 6px;">Cours par code</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id</td>
+                    <td style="border: 1px solid black; padding: 6px;">Détails d'un cours par ID</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id/users</td>
+                    <td style="border: 1px solid black; padding: 6px;">Utilisateurs d'un cours</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id/participants</td>
+                    <td style="border: 1px solid black; padding: 6px;">Participants d'un cours</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.4em;">POST/PATCH/DELETE</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.4em;">
+            <thead>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Méthode</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/add</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Créer nouveau cours</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/delete</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #f8d7da;">DELETE</td>
+                    <td style="border: 1px solid black; padding: 6px;">Supprimer cours</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/update/:_id</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #fff3cd;">PATCH</td>
+                    <td style="border: 1px solid black; padding: 6px;">Mettre à jour cours</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id/lastaccess</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Mettre à jour dernier accès</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id/register</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Inscrire utilisateurs au cours</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:_id/unregister</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Désinscrire utilisateurs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 //VS
 
-```php [1:, 2-3 | 6-16 | 18-30 | 34-39 | 42-45 | 47-50 | 52-56 | 58-74]
-<?php
-// Connexion à la base de données
-require 'DB.php'; // nous donne l'objet $mysqli pour la connexion
+<h6>Routes Catégories - /api/categories</h6>
 
-
-// Fonction pour calculer l'argent gagné en fonction des niveaux passés
-function calculate_money($levels_passed, $base = 1, $scale = 1.5, $offset = 1) {
-  $total_money = 0;
-    for ($level = 1; $level <= $levels_passed; $level++) {
-        // Calcule l'argent gagné pour ce niveau, avec une formule logarithmique
-        $money_for_level = (int) floor($base + log($level + $offset, $scale));
-        $total_money += $money_for_level;
-    }
-
-    return $total_money;
-}
-/*
-Exemple :
-
-Level 1: Money = 2
-Level 2: Money = 3
-Level 3: Money = 4
-Level 4: Money = 4
-Level 5: Money = 5
-Level 6: Money = 5
-Level 7: Money = 6
-Level 8: Money = 6
-Level 9: Money = 6
-Level 10: Money = 6
-Total money for 10 levels: 47
-
-*/
-
-// Récupération des paramètres de la requête
-$uuid = $_GET['user_id'] ?? $_GET['uuid'] ?? '';
-$score = intval($_GET['score'] ?? 0);
-$arrows_thrown = intval($_GET['arrows_thrown'] ?? 0);
-$planets_hit = intval($_GET['planets_hit'] ?? 0);
-$levels_passed = intval($_GET['levels_passed'] ?? 0);
-
-
-// Insert score into database
-$q = $mysqli->prepare("INSERT INTO score (uuid, score, arrows_thrown, planets_hit, levels_passed) VALUES (?, ?, ?, ?, ?)");
-$q->bind_param("siiii", $uuid, $score, $arrows_thrown, $planets_hit, $levels_passed);
-$q->execute();
-
-// Update bestscore if necessary
-$update = $mysqli->prepare("UPDATE user SET bestscore = ? WHERE uuid = ? AND bestscore < ?");
-$update->bind_param("isi", $score, $uuid, $score);
-$update->execute();
-
-// Update money thanks to levels_passed
-$money = calculate_money($levels_passed);
-$updateMoney = $mysqli->prepare("UPDATE user SET money = money + ? WHERE uuid = ?");
-$updateMoney->bind_param("is", $money, $uuid);
-$updateMoney->execute();
-
-header('Content-Type: application/json');
-if ($q->affected_rows > 0 && $update->affected_rows > 0 && $updateMoney->affected_rows > 0)
-{
-  echo json_encode([
-    "success" => true,
-        "money" => $money,
-        "message" => "SUCCESS"
-    ]);
-}
-else
-{
-    echo json_encode([
-        "success" => false,
-        "money" => 0,
-        "message" => "ERROR"
-    ]);
-}
-?>
-
-```
+<div style="flex: 1;">
+    <table class="api-table" style="width: 100%; font-size: 0.4em;">
+        <thead>
+            <tr style="background-color: rgb(228, 240, 245);">
+                <th style="border: 1px solid black; padding: 4px;">Endpoint</th>
+                <th style="border: 1px solid black; padding: 4px;">Méthode</th>
+                <th style="border: 1px solid black; padding: 4px;">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid black; padding: 6px;">/:courseId</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #cce5ff;">GET</td>
+                <td style="border: 1px solid black; padding: 6px;">Catégories d'un cours</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/add-category/:courseId</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #d4edda;">POST</td>
+                <td style="border: 1px solid black; padding: 4px;">Ajouter catégorie</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/modify-category/:courseId/order</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #fff3cd;">PUT</td>
+                <td style="border: 1px solid black; padding: 4px;">Modifier ordre catégories</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/modify-category</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #fff3cd;">PUT</td>
+                <td style="border: 1px solid black; padding: 4px;">Modifier catégorie</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/delete-category/:courseId</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #f8d7da;">DELETE</td>
+                <td style="border: 1px solid black; padding: 4px;">Supprimer catégorie</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/add-content/:categoryId</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #d4edda;">POST</td>
+                <td style="border: 1px solid black; padding: 4px;">Ajouter contenu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 4px;">/update-content/:contentId</td>
+                <td style="border: 1px solid black; padding: 4px; background-color: #fff3cd;">PUT</td>
+                <td style="border: 1px solid black; padding: 4px;">Mettre à jour contenu</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 //VS
+
+<h6>Routes Devoirs - /api/assignments</h6>
+
+<table class="api-table" style="width: 80%; margin: 0 auto; font-size: 0.4em;">
+    <thead>
+        <tr style="background-color: rgb(228, 240, 245);">
+            <th style="border: 1px solid black; padding: 8px;">Endpoint</th>
+            <th style="border: 1px solid black; padding: 8px;">Méthode</th>
+            <th style="border: 1px solid black; padding: 8px;">Description</th>
+            <th style="border: 1px solid black; padding: 8px;">Auth requise</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Obtenir tous les devoirs</td>
+            <td style="border: 1px solid black; padding: 8px;">Non</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Obtenir devoir par ID</td>
+            <td style="border: 1px solid black; padding: 8px;">Non</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/content/:id</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Obtenir devoir par ID de contenu</td>
+            <td style="border: 1px solid black; padding: 8px;">Non</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Créer nouveau devoir</td>
+            <td style="border: 1px solid black; padding: 8px;">Oui</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #fff3cd;">PUT</td>
+            <td style="border: 1px solid black; padding: 8px;">Mettre à jour devoir</td>
+            <td style="border: 1px solid black; padding: 8px;">Oui</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #f8d7da;">DELETE</td>
+            <td style="border: 1px solid black; padding: 8px;">Supprimer devoir</td>
+            <td style="border: 1px solid black; padding: 8px;">Oui</td>
+        </tr>
+    </tbody>
+</table>
+
+//VS
+
+<h6>Routes Soumissions - /api/user-assignments</h6>
+
+<table class="api-table" style="width: 90%; margin: 0 auto; font-size: 0.4em;">
+    <thead>
+        <tr style="background-color: rgb(228, 240, 245);">
+            <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+            <th style="border: 1px solid black; padding: 6px;">Méthode</th>
+            <th style="border: 1px solid black; padding: 6px;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid black; padding: 6px;">/add-to-students</td>
+            <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 6px;">Ajouter devoir à tous les étudiants d'un cours</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 6px;">/student-assignment/:courseId/:assignmentId</td>
+            <td style="border: 1px solid black; padding: 6px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 6px;">Obtenir devoir d'un étudiant spécifique</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 6px;">/all-students/:courseId/:assignmentId</td>
+            <td style="border: 1px solid black; padding: 6px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 6px;">Obtenir tous les devoirs des étudiants</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 6px;">/update/:courseId/:assignmentId/:studentIne</td>
+            <td style="border: 1px solid black; padding: 6px; background-color: #fff3cd;">PUT</td>
+            <td style="border: 1px solid black; padding: 6px;">Mettre à jour soumission d'un étudiant</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 6px;">/grades</td>
+            <td style="border: 1px solid black; padding: 6px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 6px;">Obtenir toutes les notes d'un étudiant</td>
+        </tr>
+    </tbody>
+</table>
+
+//VS
+
+<h6>Routes Fichiers - /api/files</h6>
+
+<div style="display: flex; gap: 20px; font-size: 0.8em;">
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.6em;">GET</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.6em;">
+            <thead>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/</td>
+                    <td style="border: 1px solid black; padding: 6px;">Lister fichiers avec filtres</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:fileId</td>
+                    <td style="border: 1px solid black; padding: 6px;">Télécharger fichier par ID</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:fileId/metadata</td>
+                    <td style="border: 1px solid black; padding: 6px;">Métadonnées d'un fichier</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/admin/stats</td>
+                    <td style="border: 1px solid black; padding: 6px;">Statistiques de stockage (admin)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="flex: 1;">
+        <h6 style="font-size: 0.6em;">POST/PUT/DELETE</h6>
+        <table class="api-table" style="width: 100%; font-size: 0.6em;">
+            <thead>
+                <tr style="background-color: rgb(228, 240, 245);">
+                    <th style="border: 1px solid black; padding: 6px;">Endpoint</th>
+                    <th style="border: 1px solid black; padding: 6px;">Méthode</th>
+                    <th style="border: 1px solid black; padding: 6px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/upload</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #d4edda;">POST</td>
+                    <td style="border: 1px solid black; padding: 6px;">Upload fichiers (max 5)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:fileId</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #f8d7da;">DELETE</td>
+                    <td style="border: 1px solid black; padding: 6px;">Supprimer fichier</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 6px;">/:fileId/metadata</td>
+                    <td style="border: 1px solid black; padding: 6px; background-color: #fff3cd;">PUT</td>
+                    <td style="border: 1px solid black; padding: 6px;">Mettre à jour métadonnées</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+//VS
+
+<h6>Routes Forum - /api/forum</h6>
+
+<table class="api-table" style="width: 80%; margin: 0 auto; font-size: 0.4em;">
+    <thead>
+        <tr style="background-color: rgb(228, 240, 245);">
+            <th style="border: 1px solid black; padding: 8px;">Endpoint</th>
+            <th style="border: 1px solid black; padding: 8px;">Méthode</th>
+            <th style="border: 1px solid black; padding: 8px;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Obtenir tous les forums</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id/messages</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Messages d'un forum</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id/messages/details</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Messages avec détails utilisateur</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Créer nouveau forum</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id/message</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Ajouter message au forum</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #f8d7da;">DELETE</td>
+            <td style="border: 1px solid black; padding: 8px;">Supprimer forum</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/:id/message/:messageId</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #f8d7da;">DELETE</td>
+            <td style="border: 1px solid black; padding: 8px;">Supprimer message du forum</td>
+        </tr>
+    </tbody>
+</table>
+
+//VS
+
+<h6>Routes Classement - /api/leaderboard</h6>
+
+<table class="api-table" style="width: 60%; margin: 0 auto; font-size: 0.6em;">
+    <thead>
+        <tr style="background-color: rgb(228, 240, 245);">
+            <th style="border: 1px solid black; padding: 8px;">Endpoint</th>
+            <th style="border: 1px solid black; padding: 8px;">Méthode</th>
+            <th style="border: 1px solid black; padding: 8px;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #cce5ff;">GET</td>
+            <td style="border: 1px solid black; padding: 8px;">Obtenir le classement général</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black; padding: 8px;">/add-score</td>
+            <td style="border: 1px solid black; padding: 8px; background-color: #d4edda;">POST</td>
+            <td style="border: 1px solid black; padding: 8px;">Ajouter score au classement</td>
+        </tr>
+    </tbody>
+</table>
+
+//S
+
+<h5>Diagramme Architecture API</h5>
+<pre>
+<code class="language-plantuml">
+@startuml
+
+@enduml
+</code>
+</pre>
