@@ -87,9 +87,67 @@ pre, code {
 
 //VS
 
-<h6> Structure </h6>
+<h6> Arborescence </h6>
 
-<!-- A mettre le tree -->
+```plaintext[1:1,2-4 | 6, 13 | 6-12 | 13 | 16-20 | 21-28, 31, 33, 35-36 | 36-47 | 48-57]
+WE4B-Project
+├── start-back.sh
+├── start-front.sh
+├── install-all.sh
+├── README.md
+├── backend
+│   └── src
+│       ├── controllers
+│       ├── _devscripts
+│       ├── models
+│       ├── routes
+│       └── services
+└── frontend
+    └── src
+        └───app
+            ├───core
+            │   ├───guards
+            │   ├───models
+            │   ├───services
+            │   └───utils
+            ├───features
+            │   ├───dashboard
+            │   ├───forums
+            │   ├───grades
+            │   ├───notifications
+            │   ├───others
+            │   ├───page-not-found
+            │   ├───admin
+            │   │   └───components
+            │   │       └───modals
+            │   ├───profile
+            │   │   └───change-password-modal
+            │   ├───auth
+            │   │   └───login
+            │   ├───calendar
+            │   ├───courses
+            │   │   ├───course-detail
+            │   │   │   ├───components
+            │   │   │   │   ├───assignment
+            │   │   │   │   ├───category
+            │   │   │   │   ├───content
+            │   │   │   │   ├───forum
+            │   │   │   │   ├───pdf-viewer
+            │   │   │   │   └───post
+            │   │   │   └───modals
+            │   │   ├───course-element
+            │   │   └───course-list
+            ├───layouts
+            │   └───header
+            └───shared
+                └───components
+                    ├───calendar
+                    ├───confirmation-dialog
+                    ├───edit-category-title-modal
+                    ├───edit-content-modal
+                    ├───file-upload
+                    └───gridfs-file-upload
+```
 
 
 //S
@@ -290,7 +348,6 @@ pre, code {
 
 //VS
 
-API PHP
 ```php [1:, 2-3 | 6-16 | 18-30 | 34-39 | 42-45 | 47-50 | 52-56 | 58-74]
 <?php
 // Connexion à la base de données
