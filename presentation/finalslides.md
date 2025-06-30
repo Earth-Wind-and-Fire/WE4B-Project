@@ -45,6 +45,7 @@ pre, code {
   line-height: 1.5;
 }
 </style>
+<img src="img/forum_detail.png" alt="forums" style="max-width:0 %;">
 
 <!-- -------------------------INTRO------------------------------ -->
 <section data-background-image="https://chaelpixserver.ddns.net/filetransfer/data/sy43/moodle.png" style="width: 80%;">
@@ -118,7 +119,7 @@ Elle propose une interface moderne et intuitive pour étudiants, enseignants et 
     <img src="https://rapport-si40.arnaudmichel.fr/images/forums.png" alt="forums" style="max-width: 100%;">
 //VS
 <h6>Exemple d'un forum</h6>
-    <img src="img/forum_detail.png" alt="forums" style="max-width: 100%;">
+    <img src="img/forum_detail.png" alt="forums" style="max-width: 80%; width:80%;">
 //VS
 
 
@@ -721,16 +722,73 @@ WE4B-Project
     </tbody>
 </table>
 
-//S
+//VS
 
-<h5>Diagramme Architecture API</h5>
-<pre>
-<code class="language-plantuml">
-@startuml
+<h5> Interfaces Typescript</h5>
 
-@enduml
-</code>
-</pre>
+```typescript []
+// Embedded
+export interface UserAssignment {
+    _id: string; // _id of the assignment
+  attempts: number; // number of attempts
+  status: string; // evaluation status
+  submissionFile?: string; // submission file
+  submissionDate?: Date; // submission date
+  comment?: string; // comment
+  grade?: number; // grade
+}
 
+// Embedded
+export interface UserCourseAccess {
+    code: string; // code du cours
+  _id: string; // _id du cours
+  lastAccess: Date;
+  assignments?: UserAssignment[]; // assignments for this course
+}
+
+// Embedded
+export interface UserNotification {
+    _id: string | ObjectId;
+    read: boolean;
+}
+
+export interface User {
+    ine: string;
+  email: string;
+  name: string;
+  firstname: string;
+  role: string; // S: Student, T: Teacher, A: Admin, B: Admin & Teacher
+  imgb64?: string;
+  password?: string;
+  department?: string;
+  promo?: string;
+  biography?: string;
+  courses?: UserCourseAccess[];
+  _id?: string;
+  notifications?: UserNotification[];
+}
+
+```
+
+```typescript
+// Embedded
+export interface ForumMessage {
+    _id?: string | ObjectId;
+    author_id: string | ObjectId;
+    date: string;
+    text: string;
+}
+
+export interface ForumThread {
+    _id?: string | ObjectId;
+    title: string;
+    date: Date;
+    OP_id: string | ObjectId; // Original Poster
+    code: string; // 'Global' ou code d'UE spécifique
+    messages: ForumMessage[];
+    last_message_date: Date;
+    last_message_author_id: string | ObjectId;
+}
+```
 
 <img src="img/Utbm.svg" alt="UTBM Logo" style="position: absolute; bottom: 0; left: 0; width: 64px; margin: -10px 0 0 -32px;">
