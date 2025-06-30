@@ -725,43 +725,22 @@ WE4B-Project
 //VS
 
 <h5> Interfaces Typescript</h5>
+
+<p style="font-size: 22px"><b>User :</b></p>
+
 <style>
     body > div > div.slides > section.stack.present > section.present > pre:nth-child(3) {
-        background:#ffffff;
-        width:fit-content();
+        background:#ff0000 !important;
+        width: fit-content !important;
     }
 </style>
 
-```typescript
-// Embedded
-export interface UserAssignment {
-    _id: string; // _id of the assignment
-  attempts: number; // number of attempts
-  status: string; // evaluation status
-  submissionFile?: string; // submission file
-  submissionDate?: Date; // submission date
-  comment?: string; // comment
-  grade?: number; // grade
-}
-```
-```typescript
-
-// Embedded
-export interface UserCourseAccess {
-    code: string; // code du cours
-  _id: string; // _id du cours
-  lastAccess: Date;
-  assignments?: UserAssignment[]; // assignments for this course
-}
-
-// Embedded
-export interface UserNotification {
-    _id: string | ObjectId;
-    read: boolean;
-}
-```
-```typescript
+<div style="display: flex; gap: 20px;">
+    <div style="width: 53%;">
+        <pre>
+            <code class="typescript">
 export interface User {
+  _id?: string;
   ine: string;
   email: string;
   name: string;
@@ -773,11 +752,42 @@ export interface User {
   promo?: string;
   biography?: string;
   courses?: UserCourseAccess[];
-  _id?: string;
   notifications?: UserNotification[];
 }
+            </code>
+        </pre>
+    </div>
+    <div style="width: 50%;">
+        <pre>
+            <code class="typescript">
+// Embedded
+export interface UserAssignment {
+_id: string; // _id of the assignment
+attempts: number; // number of attempts
+status: string; // evaluation status
+submissionFile?: string; // submission file
+submissionDate?: Date; // submission date
+comment?: string; // comment
+grade?: number; // grade
+}
+// Embedded
+export interface UserCourseAccess {
+code: string; // code du cours
+_id: string; // _id du cours
+lastAccess: Date;
+assignments?: UserAssignment[]; // assignments for this course
+}
+// Embedded
+export interface UserNotification {
+_id: string | ObjectId;
+read: boolean;
+}
+            </code>
+        </pre>
+    </div>
+</div>
 
-```
+//VS
 
 ```typescript
 // Embedded
@@ -799,5 +809,3 @@ export interface ForumThread {
     last_message_author_id: string | ObjectId;
 }
 ```
-
-<img src="img/Utbm.svg" alt="UTBM Logo" style="position: absolute; bottom: 0; left: 0; width: 64px; margin: -10px 0 0 -32px;">
