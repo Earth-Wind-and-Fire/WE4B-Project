@@ -59,6 +59,11 @@ pre, code {
 
 //VS
 
+
+Le projet **Moodle** est une plateforme éducative en ligne qui simplifie la gestion des cours et l'apprentissage.  
+Elle propose une interface moderne et intuitive pour étudiants, enseignants et administrateurs.
+
+
 <aside class="notes">
    On peut faire des notes (accessible avec la touche "s")
 </aside>
@@ -194,7 +199,7 @@ WE4B-Project
 
 //VS
 
-https://rapport-si40.arnaudmichel.fr/modelisationdonnees.html#sch-ma-g-n-ral-de-la-base-de-donn-es
+[Modélisation base de la base données](https://rapport-si40.arnaudmichel.fr/modelisationdonnees.html#sch-ma-g-n-ral-de-la-base-de-donn-es)
 
 //VS
 
@@ -719,3 +724,6 @@ https://rapport-si40.arnaudmichel.fr/modelisationdonnees.html#sch-ma-g-n-ral-de-
 @enduml
 </code>
 </pre>
+
+
+<img src="img/Utbm.svg" alt="UTBM Logo" style="position: absolute; bottom: 0; left: 0; width: 64px; margin: -10px 0 0 -32px;">
