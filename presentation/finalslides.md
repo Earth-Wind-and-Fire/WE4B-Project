@@ -188,6 +188,53 @@ WE4B-Project
                     └───gridfs-file-upload
 ```
 
+//S
+<h5>Frontend : Angular</h5>
+
+//VS 
+
+## Angular Components
+
+Dans notre application, chaque **page** est un **composant** Angular.  
+Ces pages peuvent elles-mêmes contenir d'autres **sous-composants** (comme un cours, un calendrier, un formulaire, etc.).  
+Chaque composant est **autonome** : il gère **sa propre logique**, **ses données**, **son affichage**, et ce **depuis sa création jusqu’à sa destruction**.  
+Cela permet une application **modulaire**, **réutilisable** et **facile à maintenir**.
+
+//VS
+## Services
+
+Les **services** nous permettent d’effectuer des **requêtes HTTP** vers notre **API**.  
+L’idée est de **séparer la logique métier (les appels API)** de la **logique d’affichage**.  
+Cela respecte le **modèle MVC** :
+- Modèle (les données, via les services),
+- Vue (l'affichage, via les composants),
+- Contrôleur (la logique, répartie entre les deux).
+
+Les services rendent aussi notre code **plus clair** et **testable**.
+
+//VS
+## Routing
+
+Chaque **URL correspond à un composant**, ce qui rend l’application **monopage (SPA)** très fluide, sans rechargement complet.  
+Grâce au routeur, on peut aussi gérer :
+- La **navigation dynamique** (comme aller à une fiche de détail),
+- Les **paramètres d’URL** (comme l’ID d’un produit),
+- Et même la **sécurité des routes** (authentification, autorisation, etc.).
+
+//VS
+## Reactive Forms
+
+Dans notre application, nous utilisons les **formulaires réactifs** pour gérer des interactions complexes avec l'utilisateur.
+
+Par exemple, lorsqu’un administrateur ajoute une nouvelle section à un cours, le formulaire permet de :
+<ul style="font-size: 0.7em; list-style-type: none; align-items: flex-start; display: flex; flex-direction: column;">
+    <li><b>Saisir dynamiquement</b> un titre, une description, un type de contenu (texte, pdf, archive, etc.),</li>
+    <li><b>Ajouter ou supprimer dynamiquement des blocs de contenu</b>, selon les besoins du cours,</li>
+    <li><b>Valider les champs</b> en temps réel (champ requis, format du lien, taille du fichier...),</li>
+    <li>Et <b>gérer les erreurs</b> de manière précise et immédiate pour guider l'utilisateur.</li>
+</ul>
+
+
 
 //S
 
@@ -788,6 +835,9 @@ read: boolean;
 </div>
 
 //VS
+
+<p style="font-size: 22px"><b>Forum :</b></p>
+
 
 ```typescript
 // Embedded
