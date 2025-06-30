@@ -45,6 +45,7 @@ pre, code {
   line-height: 1.5;
 }
 </style>
+<img src="img/Utbm.svg" alt="UTBM Logo" style="width:0%;">
 <img src="img/forum_detail.png" alt="forums" style="max-width:0 %; width:0%;">
 
 <!-- -------------------------INTRO------------------------------ -->
@@ -120,10 +121,6 @@ Elle propose une interface moderne et intuitive pour étudiants, enseignants et 
 //VS
 <h6>Exemple d'un forum</h6>
     <img src="img/forum_detail.png" alt="forums" style="max-width: 80%; width:80%;">
-//VS
-
-
-
 //VS
 
 <h6> Arborescence </h6>
@@ -859,3 +856,4 @@ export interface ForumThread {
     last_message_author_id: string | ObjectId;
 }
 ```
+
