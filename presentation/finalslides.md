@@ -45,7 +45,7 @@ pre, code {
   line-height: 1.5;
 }
 </style>
-<img src="img/forum_detail.png" alt="forums" style="max-width:0 %;">
+<img src="img/forum_detail.png" alt="forums" style="max-width:0 %; width:0%;">
 
 <!-- -------------------------INTRO------------------------------ -->
 <section data-background-image="https://chaelpixserver.ddns.net/filetransfer/data/sy43/moodle.png" style="width: 80%;">
@@ -718,8 +718,14 @@ WE4B-Project
 //VS
 
 <h5> Interfaces Typescript</h5>
+<style>
+    body > div > div.slides > section.stack.present > section.present > pre:nth-child(3) {
+        background:#ffffff;
+        width:fit-content();
+    }
+</style>
 
-```typescript []
+```typescript
 // Embedded
 export interface UserAssignment {
     _id: string; // _id of the assignment
@@ -730,6 +736,8 @@ export interface UserAssignment {
   comment?: string; // comment
   grade?: number; // grade
 }
+```
+```typescript
 
 // Embedded
 export interface UserCourseAccess {
@@ -744,9 +752,10 @@ export interface UserNotification {
     _id: string | ObjectId;
     read: boolean;
 }
-
+```
+```typescript
 export interface User {
-    ine: string;
+  ine: string;
   email: string;
   name: string;
   firstname: string;
