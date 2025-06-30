@@ -190,12 +190,14 @@ WE4B-Project
 
 //VS 
 
-## Angular Components
+<h4> Angular Components </h4>
 
-Dans notre application, chaque **page** est un **composant** Angular.  
-Ces pages peuvent elles-mêmes contenir d'autres **sous-composants** (comme un cours, un calendrier, un formulaire, etc.).  
-Chaque composant est **autonome** : il gère **sa propre logique**, **ses données**, **son affichage**, et ce **depuis sa création jusqu’à sa destruction**.  
-Cela permet une application **modulaire**, **réutilisable** et **facile à maintenir**.
+<p style:"font-size: 0.7em;">
+    Dans notre application, chaque <b>page</b> est un <b>composant</b> Angular.<br>
+    Ces pages peuvent elles-mêmes contenir d'autres <b>sous-composants</b> (comme un cours, un calendrier, un formulaire, etc.).<br>
+    Chaque composant est <b>autonome</b> : il gère <b>sa propre logique</b>, <b>ses données</b>, <b>son affichage</b>, et ce <b>depuis sa création jusqu’à sa destruction</b>.<br>
+    Cela permet une application <b>modulaire</b>, <b>réutilisable</b> et <b>facile à maintenir</b>.
+</p>
 
 //VS
 ## Services
