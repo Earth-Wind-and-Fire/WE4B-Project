@@ -857,3 +857,11 @@ export interface ForumThread {
 }
 ```
 
+
+//S
+
+<h5> Merci de votre attention !</h5>
+
+<p style="font-size: 22px">Es-ce que vous avez des questions ?</p>  
+
+<img src="img/Utbm.svg" alt="logo utbm" style="width: 200px; height: auto; margin-top: 20px;">
