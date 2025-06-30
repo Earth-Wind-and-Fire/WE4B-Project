@@ -89,20 +89,21 @@ pre, code {
 
 //VS
 
+<h6>Login</h6>
+    <img src="https://rapport-si40.arnaudmichel.fr/images/image%20login.png" alt="login" style="max-width: 100%;">
+//VS
+
 <h6>Dashboard</h6>
-    <img src="img/dashboard.png" alt="dashboard" style="max-width: 100%;">
+    <img src="https://rapport-si40.arnaudmichel.fr/images/dashboard.png" alt="dashboard" style="max-width: 100%;">
 //VS
 <h6>Courses</h6>
-    <img src="img/courses.png" alt="courses" style="max-width: 100%;">
-//VS
-<h6>Calendrier</h6>
-    <img src="img/calendar.png" alt="calendar" style="max-width: 100%;">
+    <img src="https://rapport-si40.arnaudmichel.fr/images/liste_cours.png" alt="courses" style="max-width: 100%;">
 //VS
 <h6>Profil</h6>
-    <img src="img/profile.png" alt="profile" style="max-width: 100%;">
+    <img src="https://rapport-si40.arnaudmichel.fr/images/image%20profile.png" alt="Profil" style="max-width: 100%;">
 //VS
 <h6>Forums</h6>
-    <img src="img/forums.png" alt="forums" style="max-width: 100%;">
+    <img src="https://rapport-si40.arnaudmichel.fr/images/forums.png" alt="forums" style="max-width: 100%;">
 //VS
 <h6>Exemple d'un forum</h6>
     <img src="img/forum_detail.png" alt="forums" style="max-width: 100%;">
