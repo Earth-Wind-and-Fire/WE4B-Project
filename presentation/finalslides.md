@@ -77,17 +77,24 @@ Elle propose une interface moderne et intuitive pour étudiants, enseignants et 
 
 ## Technologies utilisées
 
-### Frontend : Angular & Angular Material
-- **Angular** (TypeScript) pour une interface réactive et modulaire
-- **Angular Material** pour des composants UI modernes et cohérents
+<h3 style="font-size: 32px">Frontend : Angular & Angular Material</h3>
+<ul style="font-size: 0.7em; list-style-type: none; align-items: flex-start; display: flex; flex-direction: column;">
+    <li><b>Angular</b> (TypeScript) pour une interface réactive et modulaire</li>
+    <li><b>Angular Material</b> pour des composants UI modernes et cohérents</li>
+</ul>
 
-### Backend : Node.js, Express & TypeScript
-- **Node.js/Express** pour une API REST performante
-- **TypeScript** pour un code typé et maintenable
+<h3 style="font-size: 32px">Backend : Node.js, Express & TypeScript</h3>
+<ul style="font-size: 0.7em; list-style-type: none; align-items: flex-start; display: flex; flex-direction: column;">
+    <li><b>Node.js</b> pour un serveur performant et scalable</li>
+    <li><b>Express</b> pour une API REST simple et efficace</li>
+    <li><b>TypeScript</b> pour un code typé et maintenable</li>
+</ul>
 
-### Base de données : MongoDB & GridFS
-- **MongoDB** pour la gestion des données (NoSQL)
-- **GridFS** pour le stockage efficace des fichiers
+<h3 style="font-size: 32px">Base de données : MongoDB & GridFS</h3>
+<ul style="font-size: 0.7em; list-style-type: none; align-items: flex-start; display: flex; flex-direction: column;">
+    <li><b>MongoDB</b> pour une base de données NoSQL flexible et scalable</li>
+    <li><b>GridFS</b> pour le stockage efficace des fichiers volumineux</li>
+</ul>
 
 //S
 
