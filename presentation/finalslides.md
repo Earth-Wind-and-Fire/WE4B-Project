@@ -63,7 +63,25 @@ pre, code {
    On peut faire des notes (accessible avec la touche "s")
 </aside>
 
+//S
 
+<h5>Technologies du Projet</h5>
+
+//VS
+
+## Technologies utilisées
+
+### Frontend : Angular & Angular Material
+- **Angular** (TypeScript) pour une interface réactive et modulaire
+- **Angular Material** pour des composants UI modernes et cohérents
+
+### Backend : Node.js, Express & TypeScript
+- **Node.js/Express** pour une API REST performante
+- **TypeScript** pour un code typé et maintenable
+
+### Base de données : MongoDB & GridFS
+- **MongoDB** pour la gestion des données (NoSQL)
+- **GridFS** pour le stockage efficace des fichiers
 
 //S
 
@@ -172,6 +190,10 @@ WE4B-Project
 
 <p style = "color: black; font-size:0.6em">API RESTful (Node.js/Express + TypeScript) pour toutes les interactions client-serveur.</p>
 <p style = "color: black; font-size:0.6em">Base de données MongoDB Atlas avec GridFS pour le stockage de fichiers.</p>
+
+//VS
+
+https://rapport-si40.arnaudmichel.fr/modelisationdonnees.html#sch-ma-g-n-ral-de-la-base-de-donn-es
 
 //VS
 
